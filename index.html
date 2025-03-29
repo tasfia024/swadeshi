@@ -16,50 +16,42 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css"
         integrity="sha512-58P9Hy7II0YeXLv+iFiLCv1rtLW47xmiRpC1oFafeKNShp8V5bKV/ciVtYqbk2YfxXQMt58DjNfkXFOn62xE+g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 
 <body>
     <!-- nav Bar -->
     <header>
-
         <nav class="navbar">
-            <div class="logo-container">
-                <img class="logo" src="img/logo.jpg">
-            </div>
-
-            <div class="search-container">
-                <input class="search-bar" type="text" placeholder="Search...">
-
-            </div>
-
-            <div class="sigUpLogIn-profilePic">
-
-                <div class="signUp-login">
-                    <a href="signup.html">
-                        <button class="button" , id="button-1">sign Up</button>
-                    </a>
-                    <button class="button" , id="button-2">Log in</button>
-                </div>
-
-                <div profilePic-container>
-                    <img class="profilePic" src="img/profilePic.webp">
-
-                </div>
-
-                <!-- hover dropdown -->
-                <div class="dropdown">
-                    <button class="dropbtn">Catagories</button>
-                    <div class="dropdown-content">
-                        <a href="https://www.w3schools.com/howto/howto_css_mega_menu.asp">category 1</a>
-                        <a href="#">category 2</a>
-                        <a href="#">category 3</a>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="logo-container">
+                            <img class="logo" src="asset/img/logo.jpg">
+                        </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="search-container">
+                            <input class="form-control" type="text" placeholder="Search...">
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <ul class="custom-list">
+                            <li>
+                                <a href="signup.html">
+                                    <button class="btn btn-info btn-sm" id="button-1">Sign Up</button>
+                                </a>
+                            </li>
+                            <li>
+                                <button class="btn btn-info btn-sm" id="button-2">Log in</button>
+                            </li>
+                            <li>
+                                <img class="profilePic" src="asset/img/profilePic.webp" alt="Profile Picture">
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
-
-
-
         </nav>
     </header>
     <hr />
@@ -70,7 +62,7 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="d-flex align-items-center justify-content-around">
-                            <img src="img/pic1.webp" class="d-block w-60 slide-img" alt="...">
+                            <img src="asset/img/pic1.webp" class="d-block w-60 slide-img" alt="...">
                             <div class="slide-img right-containeer">
                                 <h1>BDT:120</h1>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptatibus,
@@ -92,7 +84,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="d-flex align-items-center justify-content-around">
-                            <img src="img/pic2.webp" class="d-block w-60 slide-img" alt="...">
+                            <img src="asset/img/pic2.webp" class="d-block w-60 slide-img" alt="...">
                             <div class="slide-img right-containeer">
                                 <h1>BDT:120</h1>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptatibus,
@@ -114,7 +106,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="d-flex align-items-center justify-content-around">
-                            <img src="img/pic3.jpg" class="d-block w-60 slide-img" alt="...">
+                            <img src="asset/img/pic3.jpg" class="d-block w-60 slide-img" alt="...">
                             <div class="slide-img right-containeer">
                                 <h1>BDT:120</h1>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptatibus,
@@ -138,7 +130,7 @@
                     </div>
                     <div class="carousel-item">
                         <div class="d-flex align-items-center justify-content-around">
-                            <img src="img/pic4.webp" class="d-block w-60 slide-img" alt="...">
+                            <img src="asset/img/pic4.webp" class="d-block w-60 slide-img" alt="...">
                             <div class="slide-img right-containeer">
                                 <h1>BDT:120</h1>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate voluptatibus,
@@ -188,49 +180,49 @@
                         <span>Category</span>
                         <a href="">Dress</a>
                     </div>
-                    <img src="img/dress/dress2.jpg" alt="">
+                    <img src="asset/img/dress/dress2.jpg" alt="">
                 </div>
                 <div class="card">
                     <div class="overly">
                         <span>Category</span>
                         <a href="">Sharee</a>
                     </div>
-                    <img src="img/sari/sari1.jpg" alt="">
+                    <img src="asset/img/sari/sari1.jpg" alt="">
                 </div>
                 <div class="card">
                     <div class="overly">
                         <span>Category</span>
                         <a href="">Bamboo</a>
                     </div>
-                    <img src="img/bamboo/bamboo2.jpg" alt="">
+                    <img src="asset/img/bamboo/bamboo2.jpg" alt="">
                 </div>
                 <div class="card">
                     <div class="overly">
                         <span>Category</span>
                         <a href="">Jute</a>
                     </div>
-                    <img src="img/jute/jute1.jpg" alt="">
+                    <img src="asset/img/jute/jute1.jpg" alt="">
                 </div>
                 <div class="card">
                     <div class="overly">
                         <span>Category</span>
                         <a href="">Jwellery</a>
                     </div>
-                    <img src="img/jwellery/jwellery1.jpg" alt="">
+                    <img src="asset/img/jwellery/jwellery1.jpg" alt="">
                 </div>
                 <div class="card">
                     <div class="overly">
                         <span>Category</span>
                         <a href="">Katha</a>
                     </div>
-                    <img src="img/katha/katha1.jpg" alt="">
+                    <img src="asset/img/katha/katha1.jpg" alt="">
                 </div>
                 <div class="card">
                     <div class="overly">
                         <span>Category</span>
                         <a href="">Pottery</a>
                     </div>
-                    <img src="img/pottery/pottery1.jpg" alt="">
+                    <img src="asset/img/pottery/pottery1.jpg" alt="">
                 </div>
 
             </div>
@@ -246,7 +238,7 @@
             <h2 class="title">Featured Product</h2>
             <div class="row">
                 <div class="col-4">
-                    <img src="img/jwellery/jwellery1.jpg" alt="">
+                    <img src="asset/img/jwellery/jwellery1.jpg" alt="">
                     <h4>কাঠের গহনা</h4>
                     <div class="rating">
                         <i class="fa-solid fa-star"></i>
@@ -259,7 +251,7 @@
                 </div>
 
                 <div class="col-4">
-                    <img src="img/pottery/pottery1.jpg" alt="">
+                    <img src="asset/img/pottery/pottery1.jpg" alt="">
                     <h4>মাটির থালা</h4>
                     <div class="rating">
                         <i class="fa-solid fa-star"></i>
@@ -271,7 +263,7 @@
                     <p>৳ 400</p>
                 </div>
                 <div class="col-4">
-                    <img src="img/dress/dress1.jpg" alt="">
+                    <img src="asset/img/dress/dress1.jpg" alt="">
                     <h4>হাতে আঁকা জামা</h4>
                     <div class="rating">
                         <i class="fa-solid fa-star"></i>
@@ -284,7 +276,7 @@
                 </div>
 
                 <div class="col-4">
-                    <img src="img/katha/katha1.jpg" alt="">
+                    <img src="asset/img/katha/katha1.jpg" alt="">
                     <h4>নকশি কথা</h4>
                     <div class="rating">
                         <i class="fa-solid fa-star"></i>
@@ -296,7 +288,7 @@
                     <p>৳ 2000</p>
                 </div>
                 <div class="col-4">
-                    <a href="product_details.html" target="_blank"><img src="img/sari/sari5.jpg"></a>
+                    <a href="product_details.html" target="_blank"><img src="asset/img/sari/sari5.jpg"></a>
                     <h4>শাড়ি</h4>
                     <div class="rating">
                         <i class="fa-solid fa-star"></i>
@@ -473,6 +465,11 @@
                     <div class="img">
                         <img src="asset/img/logo.jpg" alt="">
                     </div>
+
+                </div>
+
+                <div class="footer-col">
+
                     <h4>Info</h4>
                     <ul class="links">
                         <li><a href="#">About Us</a></li>
@@ -482,17 +479,7 @@
                         <li><a href="#">Collection</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <ul class="links">
-                        <li><a href="#">Free Designs</a></li>
-                        <li><a href="#">Latest Designs</a></li>
-                        <li><a href="#">Themes</a></li>
-                        <li><a href="#">Popular Designs</a></li>
-                        <li><a href="#">Art Skills</a></li>
-                        <li><a href="#">New Uploads</a></li>
-                    </ul>
-                </div>
+
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul class="links">
@@ -504,17 +491,7 @@
                         <li><a href="#">Info</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul class="links">
-                        <li><a href="#">Customer Agreement</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Security</a></li>
-                        <li><a href="#">Cookie Guidelines</a></li>
-                        <li><a href="#">Returns & Refunds</a></li>
-                    </ul>
-                </div>
+
                 <div class="footer-col">
                     <h4>Newsletter</h4>
                     <p>
