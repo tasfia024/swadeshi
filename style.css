@@ -33,6 +33,12 @@
     font-weight: 400;
 }
 
+.footer .footer-row .footer-col img {
+    margin-bottom: 10px;
+    height: 50px;
+    width: 50px;
+}
+
 .footer-col .links {
     margin-top: 20px;
 }
