@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product details - Swadeshi</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-<!--Header Start-->
-    
-
-
-
+<?php
+    include 'layout/header.php';
+?>
 
     <!-- Single product details start-->
 
@@ -20,21 +8,21 @@
         <div class="row">
             <div class="col-2">
                 <!--Large img-->
-                <img src="img/sari/sari5.jpg" alt="" width="98%" height="448px" id="ProductImg">
+                <img src="asset/img/sari/sari5.jpg" alt="" width="98%" height="448px" id="ProductImg">
 
                 <!--Small img-->
                 <div class="small-img-row">
                     <div class="small-img-col">
-                        <img src="img/sari/sari5.jpg" width="100%" class="small-img">
+                        <img src="asset/img/sari/sari5.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="img/sari/sari5-2.jpg" width="100%" class="small-img">
+                        <img src="asset/img/sari/sari5-2.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="img/sari/sari5-3.jpg" width="100%" class="small-img">
+                        <img src="asset/img/sari/sari5-3.jpg" width="100%" class="small-img">
                     </div>
                     <div class="small-img-col">
-                        <img src="img/sari/sari5-4.jpg" width="100%" class="small-img">
+                        <img src="asset/img/sari/sari5-4.jpg" width="100%" class="small-img">
                     </div>
                 </div>
 
@@ -60,8 +48,7 @@
                 <!--Cart-->
                 <a href="#" class="btn">Add To Cart</a>
                 <!--Product details-->
-                <h3>Product Details <i class="fa-solid fa-indent"></i></h3>
-                <br>
+                <h5>Description</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis, minima distinctio. Ipsa odit totam vel.</p>
 
             </div>
@@ -84,7 +71,7 @@
  
         <div class="row">
             <div class="col-4">
-                <img src="img/sari/sari1.jpg" alt="">
+                <img src="asset/img/sari/sari1.jpg" alt="">
                 <h4>শাড়ি</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i>
@@ -97,7 +84,7 @@
             </div>
 
             <div class="col-4">
-                <img src="img/sari/sari2.jpg" alt="">
+                <img src="asset/img/sari/sari2.jpg" alt="">
                 <h4>শাড়ি</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i>
@@ -109,7 +96,7 @@
                 <p>৳ 1400</p>
             </div>
             <div class="col-4">
-                <img src="img/sari/sari3.jpg" alt="">
+                <img src="asset/img/sari/sari3.jpg" alt="">
                 <h4>শাড়ি</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i>
@@ -122,7 +109,7 @@
             </div>
 
             <div class="col-4">
-                <img src="img/sari/sari4.jpg" alt="">
+                <img src="asset/img/sari/sari4.jpg" alt="">
                 <h4>শাড়ি</h4>
                 <div class="rating">
                     <i class="fa-solid fa-star"></i>
@@ -161,30 +148,6 @@
 
     <!--JS for toggle menu ends-->
 
-
-    <!--JS for product Gellery start-->
-    <script>
-        var ProductImg = document.getElementById("ProductImg");
-        var SmallImg = document.getElementsByClassName("small-img");
-
-        SmallImg[0].onclick = function()
-        {
-            ProductImg.src = SmallImg[0].src;
-        }
-        SmallImg[1].onclick = function()
-        {
-            ProductImg.src = SmallImg[1].src;
-        }
-        SmallImg[2].onclick = function()
-        {
-            ProductImg.src = SmallImg[2].src;
-        }
-        SmallImg[3].onclick = function()
-        {
-            ProductImg.src = SmallImg[3].src;
-        }
-    </script>
-
-
-</body>
-</html>
+<?php
+    include 'layout/footer.php';
+?>
