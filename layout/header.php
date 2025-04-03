@@ -95,7 +95,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li><a class="dropdown-item" href="backend/index.php">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="backend/dashboard.php">Dashboard</a></li>
                             <li><a class="dropdown-item" href="?action=logout">Sign Out</a></li>
                         </ul>
                     </li>
