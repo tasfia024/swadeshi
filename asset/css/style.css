@@ -11,14 +11,7 @@ body {
 }
 
 .navbar {
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 4px;
-    background-color: rgb(255, 255, 255);
-    margin-bottom: 5px;
-
+    border-bottom: 1px solid #ddd;
 }
 
 .nav-item:hover {
@@ -56,8 +49,8 @@ body {
 }
 
 .profilePic {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border: 2px solid rgb(164, 186, 18);
     border-radius: 100px;
 
@@ -65,17 +58,6 @@ body {
 
 .profilePic:hover {
     cursor: pointer;
-}
-
-#button-1 {
-    background-color: rgb(41, 161, 41);
-
-}
-
-#button-2 {
-    background-color: skyblue;
-
-
 }
 
 .sigUpLogIn-profilePic {
@@ -150,12 +132,6 @@ p {
     color: #555;
 }
 
-.container {
-    max-width: 1300px;
-    margin: auto;
-    padding-left: 25px;
-    padding-right: 25px;
-}
 
 
 .col-2 {
@@ -321,27 +297,6 @@ h4 {
 
 /*Media Query for Menu*/
 @media only screen and (max-width:800px) {
-    nav ul {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        background: black;
-        width: 100%;
-        overflow: hidden;
-        transition: max-height 0.5s;
-    }
-
-    nav ul li {
-        display: block;
-        margin-right: 50px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-
-    nav ul li a {
-        color: white;
-    }
-
     .fa-bars {
         display: block;
         cursor: pointer;

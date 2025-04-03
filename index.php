@@ -2,7 +2,7 @@
 include 'layout/header.php';
 ?>
 
-<main>
+<main class="mt-2">
         <div class="slider">
             <div id="carouselExampleRide" class="carousel slide slider" data-bs-ride="true">
                 <div class="carousel-inner">
