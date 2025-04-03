@@ -21,6 +21,16 @@ body {
 
 }
 
+.nav-item:hover {
+    background-color: #f8f9fa;
+    /* Light background on hover */
+    border-radius: 4px;
+}
+
+.nav-link {
+    transition: background-color 0.3s ease;
+}
+
 .logo-container {
     text-align: center;
 }
@@ -469,22 +479,4 @@ input:focus {
         line-height: 32px;
     }
 
-}
-
-
-/* Flex container for the custom list */
-.custom-list {
-    display: flex;
-    justify-content: flex-end;
-    /* Align items to the right */
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    /* Remove list bullets */
-}
-
-/* Each list item will take only the needed space */
-.custom-list li {
-    margin-left: 20px;
-    /* Add space between items */
 }

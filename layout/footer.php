@@ -57,45 +57,31 @@
         </section>
     </footer>
 
-    <!--JS for toggle menu starts-->
-
-    <script>
-        var MenuIteams = document.getElementById("MenuIteams");
-        MenuIteams.style.maxHeight = "0px";
-
-        function menutoggle() {
-            if (MenuIteams.style.maxHeight == "0px") {
-                MenuIteams.style.maxHeight = "200px"
-            }
-            else {
-                MenuIteams.style.maxHeight = "0px"
-            }
-
-        }
-    </script>
-
-    <script src="asset/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <!-- <script src="asset/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="asset/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 
     <!--JS for product Gellery start-->
     <script>
         var ProductImg = document.getElementById("ProductImg");
         var SmallImg = document.getElementsByClassName("small-img");
-
-        SmallImg[0].onclick = function()
-        {
-            ProductImg.src = SmallImg[0].src;
-        }
-        SmallImg[1].onclick = function()
-        {
-            ProductImg.src = SmallImg[1].src;
-        }
-        SmallImg[2].onclick = function()
-        {
-            ProductImg.src = SmallImg[2].src;
-        }
-        SmallImg[3].onclick = function()
-        {
-            ProductImg.src = SmallImg[3].src;
+        if (SmallImg.length) {
+            SmallImg[0].onclick = function()
+            {
+                ProductImg.src = SmallImg[0].src;
+            }
+            SmallImg[1].onclick = function()
+            {
+                ProductImg.src = SmallImg[1].src;
+            }
+            SmallImg[2].onclick = function()
+            {
+                ProductImg.src = SmallImg[2].src;
+            }
+            SmallImg[3].onclick = function()
+            {
+                ProductImg.src = SmallImg[3].src;
+            }
         }
     </script>
 </body>

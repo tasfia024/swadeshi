@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="asset/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css" />
     <!-- link for css file -->
     <link rel="stylesheet" href="asset/css/style.css" />
-    <link rel="stylesheet" href="asset/css/style2.css" />
+    <link rel="stylesheet" href="asset/css/footer.css" />
+    <link rel="stylesheet" href="asset/css/custom.css" />
     <!-- link font-awesome for all icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -33,52 +34,81 @@
 <body>
     <!-- nav Bar -->
     <header>
-        <nav class="navbar">
-            <div class="col-md-12">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="logo-container">
-                            <a href="index.php"><img class="logo" src="asset/img/logo.jpg"></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="search-container">
-                            <input class="form-control" type="text" placeholder="Search...">
-                        </div>
-                    </div>
-                    <div class="col-md-5">
-                        <ul class="custom-list">
-                        <?php
-                            $isLogin = Session::get("login");
-                            if (isset($isLogin) && $isLogin) {
-                        ?>
-
-                            <li>
-                                <a class="btn btn-primary btn-sm" href="backend/index.php">
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li>
-                                <a href="?action=logout" class="btn btn-warning btn-sm" id="button-2">Sign Out</a>
-                            </li>
-                            <li>
-                                <img class="profilePic" src="asset/img/profilePic.webp" alt="Profile Picture">
-                            </li>
-
-                        <?php
-                            } else {
-                        ?>
-                            <li>
-                                <a href="sign_in.php" class="btn btn-info btn-sm" id="button-2">Sign In</a>
-                            </li>
-                        <?php
-                            }
-                        ?>
-                        </ul>
-                    </div>
-
+        <nav class="navbar navbar-expand-lg navbar-light bg-ligh">
+            <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand" href="index.php">
+                <div class="logo-container">
+                    <img class="logo" src="asset/img/logo.jpg">
                 </div>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <form class="d-flex" style="width: 70% !important;">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+            </div>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Categories
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Category 1</a></li>
+                        <li><a class="dropdown-item" href="#">Category 2</a></li>
+                        <li><a class="dropdown-item" href="#">Category 3</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">All Categories</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+
+                    <?php
+                        $isLogin = Session::get("login");
+                        if (isset($isLogin) && $isLogin) {
+                    ?>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img class="profilePic" src="asset/img/profilePic.webp" alt="Avatar">
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="backend/index.php">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="?action=logout">Sign Out</a></li>
+                        </ul>
+                    </li>
+
+                    <?php } else { ?>
+                        <li>
+                            <a href="sign_in.php" class="nav-link btn btn-info">Sign In</a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </div>
             </div>
         </nav>
+
     </header>
     <hr />
