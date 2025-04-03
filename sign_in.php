@@ -1,7 +1,15 @@
 <?php
     include 'layout/header.php';
+    include 'lib/User.php';
+    Session:: checkLogin();
 ?>
 
+<?php 
+ 	$user = new User();
+ 	if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['login'])) {
+        $loginMsg = $user->userLogin($_POST);
+ 	}
+ ?>
     <content>
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -9,14 +17,16 @@
             <!-- Main content -->
             <div class="content mb-3">
                 <div class="container">
+                <?php
+                  if (isset($loginMsg)) {
+                    echo $loginMsg;
+                  }
+                ?>
                     <div class="card">
                         <div class="card-body row">
                             <div class="col-5 text-center d-flex align-items-center justify-content-center">
                                 <div class="">
-                                    <h2>Login</h2>
-                                    <!-- <p class="lead mb-5">123 Testing Ave, Testtown, 9876 NA<br>
-                              Phone: +1 234 56789012
-                            </p> -->
+                                    <h2>Sign In</h2>
                                 </div>
                             </div>
                             <div class="col-7">
@@ -31,10 +41,10 @@
                                         <input type="password" name="password" id="inputEmail" class="form-control"
                                             required />
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group mt-2">
                                         <button type="submit" name="login" class="btn btn-primary">Sign In</button>
                                         <span class="ml-3">
-                                            Don't have account? <a href="register.php">Sign Up</a>
+                                            Don't have account? <a href="sign_up.php">Sign Up</a>
                                         </span>
                                     </div>
                                 </form>
