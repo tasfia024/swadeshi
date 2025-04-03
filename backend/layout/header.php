@@ -19,62 +19,9 @@
 
     <!-- Font Awesome 5 (Icons) -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="asset/backend/css/custom.css">
+    <link rel="stylesheet" href="../asset/backend/css/custom.css">
     <style>
-        /* Full height layout */
-        html,
-        body {
-            height: 100%;
-        }
-
-        /* Wrapper for Sidebar and Content */
-        #wrapper {
-            display: flex;
-            min-height: 100%;
-        }
-
-        /* Sidebar Styles */
-        #sidebar-wrapper {
-            min-height: 100vh;
-            width: 250px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            background-color: #343a40;
-        }
-
-        #page-content-wrapper {
-            margin-left: 250px;
-            width: 100%;
-            flex-grow: 1;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #f8f9fa;
-            text-align: center;
-            padding: 10px;
-        }
-
-        /* Responsive Sidebar */
-        @media (max-width: 767px) {
-            #sidebar-wrapper {
-                display: none;
-            }
-
-            #page-content-wrapper {
-                margin-left: 0;
-            }
-
-            #sidebar-wrapper.active {
-                display: block;
-            }
-
-            .navbar-nav {
-                margin-left: auto;
-            }
-        }
+        
     </style>
 </head>
 

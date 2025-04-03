@@ -3,8 +3,10 @@
         <button class="btn btn-primary" id="menu-toggle">
             <i class="fas fa-bars"></i>
         </button>
-        <span class="navbar-text ms-auto">
-            Admin Name
-        </span>
+        <a href="../index.php" style="text-decoration: none">
+            <span class="navbar-text ms-auto">
+                Swadeshi
+            </span>
+        </a>
     </div>
 </nav>

@@ -1,7 +1,7 @@
 <!-- Footer -->
-            <footer>
+            <!-- <footer>
                 <p>&copy; 2025 Your Company. All Rights Reserved.</p>
-            </footer>
+            </footer> -->
         </div>
     </div>
     <?php

@@ -2,8 +2,8 @@
     include 'layout/header.php';
 ?>
     <!-- Content Body -->
-    <div class="container-fluid p-4">
-        <h3>User List</h3>
+    <div class="container-fluid p-3">
+        <h4>User List</h4>
 
         <!-- Example Content Cards -->
         <div class="row">

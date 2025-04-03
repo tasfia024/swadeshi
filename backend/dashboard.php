@@ -2,8 +2,8 @@
     include 'layout/header.php';
 ?>
     <!-- Content Body -->
-    <div class="container-fluid p-4">
-        <h2>Dashboard</h2>
+    <div class="container-fluid p-3">
+        <h4>Dashboard</h4>
         <p>Welcome to the backend dashboard. Here you can manage your website's content.</p>
 
         <!-- Example Content Cards -->
