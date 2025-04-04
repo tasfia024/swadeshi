@@ -16,7 +16,7 @@
             <i class="fas fa-users"></i> Users
         </a>
 
-        <a href="user_list.php" class="list-group-item list-group-item-action bg-dark text-white">
+        <a href="category_list.php" class="list-group-item list-group-item-action bg-dark text-white">
             <i class="fas fa-list"></i> Category
         </a>
 

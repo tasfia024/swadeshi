@@ -4,14 +4,12 @@
     <!-- Content Body -->
     <div class="container-fluid p-3">
         <div class="content-title">
-            <h4>User List</h4>
-            <div><a href="#" class="btn btn-primary btn-sm">Add</a></div>
+            <h4>Category List</h4>
+            <div><a href="category_add.php" class="btn btn-primary btn-sm">Add</a></div>
         </div>
         <br>
-
         <!-- Example Content Cards -->
         <div class="row">
-
             <table id="usersTable" class="display">
                 <thead>
                     <tr>

@@ -39,6 +39,11 @@ body {
 
 }
 
+.content-title {
+    display: flex;
+    justify-content: space-between;
+}
+
 /* Footer */
 footer {
     background-color: #f8f9fa;
