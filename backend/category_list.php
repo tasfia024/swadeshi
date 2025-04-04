@@ -1,5 +1,6 @@
 <?php
     include 'layout/header.php';
+    Session::checkSession();
 ?>
     <!-- Content Body -->
     <div class="container-fluid p-3">
