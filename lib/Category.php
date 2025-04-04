@@ -54,7 +54,7 @@
                 $file_name = $findData->image;
             }
 
-            $query = "UPDATE events
+            $query = "UPDATE categories
 	               	SET 
 	               	name  = '$name', 
 	               	image 	    = '$file_name'
@@ -115,35 +115,30 @@
         }
 
 
-
-        // Get Events data
         public function getData () {
             $sql = "SELECT * FROM categories";
             $result = $this->db->select($sql);
             return $result;
         }
 
-        // Get Event Data by Id
         public function getDataById ($id) {
             $sql = "SELECT * FROM categories WHERE id = {$id} LIMIT 1";
             $result = $this->db->select($sql);
             return $result;
         }
 
-        // Delete event by id
         public function deleteDataById ($id) {
             $query = "DELETE from categories where id = '$id'";
             $delcat = $this->db->delete($query);
 
             if($delcat != false){
-                $msg = '<div class="alert alert-success"><strong> Congratulations!</strong> event deleted successfully!</div>';
+                $msg = '<div class="alert alert-success"><strong> Congratulations!</strong> Data deleted successfully!</div>';
                 return $msg;
             }else{
-                $msg = '<div class="alert alert-danger"><strong> Sorry!</strong> event not deleted!</div>';
+                $msg = '<div class="alert alert-danger"><strong> Sorry!</strong> Data not deleted!</div>';
                 return $msg;
             }
         }
-
 
 	}
 ?>
