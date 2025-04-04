@@ -60,7 +60,7 @@
                                 ?>
                             </td>
                             <td>
-                                <a class="btn btn-success btn-sm" href="productedit.php?pdId=<?php echo $row['id']?>"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-success btn-sm" href="category_edit.php?catId=<?php echo $row['id']?>"><i class="fa fa-edit"></i></a>
 
 					            <a class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to Delete'); " href="?delId=<?php echo $row['id']?>">
                                     <i class="fa fa-trash"></i>

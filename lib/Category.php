@@ -1,6 +1,7 @@
 <?php
 	$filepath = realpath(dirname(__FILE__));
 	include_once ($filepath."/../config/Database.php");
+	include_once ($filepath."/../config/config.php");
 	include_once ($filepath."/../helpers/Format.php");
 ?>
 
@@ -50,6 +51,10 @@
                 }
 
                 $file_name = $result;
+
+                if ($findData->image) {
+                    unlink('../uploads/' . $findData->image);
+                }
             } else {
                 $file_name = $findData->image;
             }
