@@ -20,7 +20,7 @@
             <i class="fas fa-list"></i> Category
         </a>
 
-        <a href="user_list.php" class="list-group-item list-group-item-action bg-dark text-white">
+        <a href="sub_category_list.php" class="list-group-item list-group-item-action bg-dark text-white">
             <i class="fas fa-list"></i> Sub Category
         </a>
 
