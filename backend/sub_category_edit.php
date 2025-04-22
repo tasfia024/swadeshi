@@ -80,7 +80,7 @@
                             <button name="sub_category" class="btn btn-success btn-sm px-3"
                                 type="submit">Update</button>
                             <a href="javascript:void(0)" onclick="window.location.reload()"
-                                class="btn btn-danger btn-sm px-3" type="button">Refresh</a>
+                                class="btn btn-danger btn-sm px-3">Refresh</a>
                         </div>
 
                         <?php } ?>

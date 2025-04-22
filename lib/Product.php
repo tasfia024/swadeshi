@@ -53,14 +53,50 @@
 
         public function update ($id, $data) {
             $findData = $this->getDataById($id)->fetch_object();
-            
-            $name = $data['name'];
-            $categoryId = $data['category_id'];
-            $query = "UPDATE sub_categories
+
+            $productName    = $data['product_name'];
+            $imageFile      = $_FILES['image'];
+            $categoryId     = $data['category_id'] ?? null;
+            $subCategoryId  = $data['sub_category_id'] ?? null;
+            $productType    = $data['product_type'] ?? null;
+            $price          = $data['price'];
+            $stockQty       = $data['stock_qty'];
+            $description    = $data['description'];
+
+            if (!isset($categoryId) && !$categoryId) {
+                $msg = "<div class='alert alert-danger'>The category field is required!</div>";
+				return $msg;
+            } elseif (!isset($productType) && !$productType) {
+                $msg = "<div class='alert alert-danger'>The product type field is required!</div>";
+				return $msg;
+            }
+
+            $imageFile = $_FILES['image'];
+            if ($imageFile['size']) {
+                $result = $this->uploadFile($imageFile);
+                if (isset($result['success']) && !$result['success']) {
+                    return $result['message'];
+                }
+                $file_name = $result;
+
+                if ($findData->image) {
+                    unlink('../uploads/' . $findData->image);
+                }
+            } else {
+                $file_name = $findData->image;
+            }
+        
+            $query = "UPDATE products
 	               	SET 
-	               	name  = '$name', 
-	               	category_id 	    = '$categoryId'
-	               	WHERE id     = '$id'";
+	               	product_name        = '$productName', 
+	               	category_id 	    = '$categoryId',
+	               	sub_category_id 	= '$subCategoryId',
+	               	image 	            = '$file_name',
+	               	product_type 	    = '$productType',
+	               	price 	            = '$price',
+	               	stock_qty 	        = '$stockQty',
+	               	description 	    = '$description'
+	               	WHERE id            = '$id'";
 
 	            $updated_rows = $this->db->update($query);
 	            if ($updated_rows) {
@@ -82,7 +118,7 @@
         }
 
         public function getDataById ($id) {
-            $sql = "SELECT * FROM sub_categories WHERE id = {$id} LIMIT 1";
+            $sql = "SELECT * FROM products WHERE id = {$id} LIMIT 1";
             $result = $this->db->select($sql);
             return $result;
         }
