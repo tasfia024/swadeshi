@@ -1,12 +1,12 @@
 <!-- Sidebar -->
 <div class="bg-dark text-white" id="sidebar-wrapper">
     <div class="sidebar-heading p-4" style="border-bottom: 1px solid #ddd">
-            <div class="logo-container">
-                <img class="logo" src="../asset/img/logo.jpg">
-            </div>
-            <div class="text-center">
-                Admin Panel
-            </div>
+        <div class="logo-container">
+            <img class="logo" src="../asset/img/logo.jpg">
+        </div>
+        <div class="text-center">
+            Admin Panel
+        </div>
     </div>
     <div class="list-group list-group-flush">
         <a href="dashboard.php" class="list-group-item list-group-item-action bg-dark text-white">
@@ -22,6 +22,10 @@
 
         <a href="sub_category_list.php" class="list-group-item list-group-item-action bg-dark text-white">
             <i class="fas fa-list"></i> Sub Category
+        </a>
+
+        <a href="product_list.php" class="list-group-item list-group-item-action bg-dark text-white">
+            <i class="fas fa-list"></i> Product
         </a>
 
         <a href="user_list.php" class="list-group-item list-group-item-action bg-dark text-white">

@@ -82,5 +82,11 @@
             }
         }
 
+        public function getSubCategoriesByCategory($categoryId) {
+            $query = "SELECT * FROM sub_categories WHERE category_id = '$categoryId'";
+            return $this->db->select($query);
+        }
+        
+
 	}
 ?>
