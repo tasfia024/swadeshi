@@ -73,7 +73,10 @@
         }
 
         public function getData () {
-            $sql = "SELECT sub_categories.*, categories.name as category_name FROM sub_categories INNER JOIN categories ON categories.id = sub_categories.category_id";
+            $sql = "SELECT products.*, categories.name as category_name, sub_categories.name as sub_category_name
+            FROM products
+            INNER JOIN categories ON categories.id = products.category_id
+            INNER JOIN sub_categories ON sub_categories.id = products.sub_category_id";
             $result = $this->db->select($sql);
             return $result;
         }

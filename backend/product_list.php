@@ -1,18 +1,11 @@
 <?php
     include 'layout/header.php';
-    include "../lib/SubCategory.php";
     include "../lib/Product.php";
     Session::checkSession();
 
-	$subCat = new Product();
+	$product = new Product();
 ?>
 
-<?php
-        if(isset($_GET['delId'])){
-            $id = $_GET['delId'];
- 			$delSubCat = $subCat->deleteDataById($id);
-        }
-    ?>
 <!-- Content Body -->
 <div class="container-fluid p-3">
     <div class="content-title">
@@ -22,35 +15,41 @@
     <hr />
     <!-- Example Content Cards -->
     <div class="row">
-        <?php
-                if(isset($delSubCat)){
-                    echo $delSubCat;
-                }
-            ?>
         <table id="usersTable" class="display">
             <thead>
                 <tr>
                     <th>SL</th>
+                    <th>Product Name</th>
+                    <th>Image</th>
                     <th>Category</th>
                     <th>Sub Category</th>
-                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Stock Qty</th>
+                    <th>Available Qty</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                        $getSubCat = $subCat->getData();
-                        if($getSubCat) {
+                        $getProduct = $product->getData();
+                        if($getProduct) {
                             $i = 0;
-                            while($row = $getSubCat->fetch_assoc()){
+                            while($row = $getProduct->fetch_assoc()){
                                 $i++;
                     ?>
                 <tr>
                     <td><?= $i ?></td>
+                    <td><?= $row['product_name']; ?></td>
+                    <td>
+                        <img src="<?= BASE_URL . '/uploads/' . $row['image']; ?>" width="60px" height="40px">
+                    </td>
+
                     <td><?= $row['category_name']; ?></td>
-                    <td><?= $row['name']; ?></td>
-                    <td><?= $row['name']; ?></td>
+                    <td><?= $row['sub_category_name']; ?></td>
+                    <td><?= $row['price']; ?></td>
+                    <td><?= $row['stock_qty']; ?></td>
+                    <td><?= $row['stock_qty'] - $row['sale_qty']; ?></td>
                     <td>
                         <?php 
                             if($row['status'] == 0){
@@ -65,10 +64,6 @@
                             <i class="fa fa-edit"></i>
                         </a>
 
-                        <a class="btn btn-danger btn-sm" onclick="return confirm('Are you sure to Delete'); "
-                            href="?delId=<?php echo $row['id']?>">
-                            <i class="fa fa-trash"></i>
-                        </a>
                     </td>
                 </tr>
                 <?php } } ?>
