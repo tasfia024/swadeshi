@@ -51,7 +51,7 @@
             <i class="fas fa-circle"></i> Order List
         </a>
 
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-white">
+        <a href="vendor_app_list.php" class="list-group-item list-group-item-action bg-dark text-white">
             <i class="fas fa-circle"></i> Vendor Application
         </a>
 

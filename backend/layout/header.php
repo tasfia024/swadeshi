@@ -21,11 +21,15 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../asset/backend/css/custom.css">
     <style>
-        
+
     </style>
 </head>
 
 <body>
+    <?php
+        $userData = Session::get('userData');
+    ?>
+
     <div id="wrapper">
         <?php
             include 'sidebar.php';
