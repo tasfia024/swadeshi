@@ -28,6 +28,10 @@
 <body>
     <?php
         $userData = Session::get('userData');
+        $userType = Session::get('userType');
+        $panelTitle = $userType == 1 ? 'Admin Panel' : ($userType == 2 ? 'Vendor Panel' : Session::get('name'));
+
+        $userRole = $userType == 1 ? 'Admin' : ($userType == 2 ? 'Vendor' : 'Buyer');
     ?>
 
     <div id="wrapper">

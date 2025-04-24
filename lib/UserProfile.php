@@ -13,61 +13,20 @@
 			$this->db = new Database();
 		}
 
-        public function store ($data) {
-            $productName    = $data['product_name'];
-            $imageFile      = $_FILES['image'];
-            $categoryId     = $data['category_id'] ?? null;
-            $subCategoryId  = $data['sub_category_id'] ?? null;
-            $productType    = $data['product_type'] ?? null;
-            $price          = $data['price'];
-            $stockQty       = $data['stock_qty'];
-            $description    = $data['description'];
-
-            if (!isset($categoryId) && !$categoryId) {
-                $msg = "<div class='alert alert-danger'>The category field is required!</div>";
-				return $msg;
-            } elseif (!isset($productType) && !$productType) {
-                $msg = "<div class='alert alert-danger'>The product type field is required!</div>";
-				return $msg;
-            }
-
-            $result = $this->uploadFile($imageFile);
-            if (isset($result['success']) && !$result['success']) {
-                return $result['message'];
-            }
-            $file_name = $result;
-
-            $sql = "INSERT INTO products (product_name, category_id, sub_category_id, product_type, image, price, stock_qty, description) VALUES('".$productName."', '".$categoryId."', '".$subCategoryId."', '".$productType."', '".$file_name."', '".$price."', '".$stockQty."', '".$description."')";
-            $query = $this->db->insert($sql);
-
-            if ($query) {
-                $msg = '<div class="alert alert-success"><strong>Success!</strong> Thank you! your form have been submitted successfully</div>';
-                return $msg;
-            } else{
-                $msg = '<div class="alert alert-success"><strong> Sorry!</strong> There has been problem inserting your details!</div>';
-                return $msg;
-            }
-
-        }
-
-
-        public function update ($id, $data) {
+        public function update ($data) {
+            $id = Session::get('userId');
             $findData = $this->getDataById($id)->fetch_object();
 
-            $productName    = $data['product_name'];
+            $name       = $data['name'];
+            $email       = $data['email'];
+            $mobileNo    = $data['mobile_no'];
             $imageFile      = $_FILES['image'];
-            $categoryId     = $data['category_id'] ?? null;
-            $subCategoryId  = $data['sub_category_id'] ?? null;
-            $productType    = $data['product_type'] ?? null;
-            $price          = $data['price'];
-            $stockQty       = $data['stock_qty'];
-            $description    = $data['description'];
+            $dob          = $data['dob'];
+            $gender       = $data['gender'];
+            $address    = $data['address'];
 
-            if (!isset($categoryId) && !$categoryId) {
-                $msg = "<div class='alert alert-danger'>The category field is required!</div>";
-				return $msg;
-            } elseif (!isset($productType) && !$productType) {
-                $msg = "<div class='alert alert-danger'>The product type field is required!</div>";
+            if (!isset($gender) && !$gender) {
+                $msg = "<div class='alert alert-danger'>The gender field is required!</div>";
 				return $msg;
             }
 
@@ -86,16 +45,15 @@
                 $file_name = $findData->image;
             }
         
-            $query = "UPDATE products
+            $query = "UPDATE users
 	               	SET 
-	               	product_name        = '$productName', 
-	               	category_id 	    = '$categoryId',
-	               	sub_category_id 	= '$subCategoryId',
+	               	name        = '$name', 
+	               	email 	    = '$email',
+	               	dob 	= '$dob',
 	               	image 	            = '$file_name',
-	               	product_type 	    = '$productType',
-	               	price 	            = '$price',
-	               	stock_qty 	        = '$stockQty',
-	               	description 	    = '$description'
+	               	gender 	    = '$gender',
+	               	address 	            = '$address',
+	               	mobile_no 	    = '$mobileNo'
 	               	WHERE id            = '$id'";
 
 	            $updated_rows = $this->db->update($query);
@@ -108,34 +66,13 @@
 	            }
         }
 
-        public function getData () {
-            $sql = "SELECT products.*, categories.name as category_name, sub_categories.name as sub_category_name
-            FROM products
-            INNER JOIN categories ON categories.id = products.category_id
-            INNER JOIN sub_categories ON sub_categories.id = products.sub_category_id";
-            $result = $this->db->select($sql);
-            return $result;
-        }
-
         public function getDataById ($id) {
-            $sql = "SELECT * FROM products WHERE id = {$id} LIMIT 1";
+            $sql = "SELECT users.*, vendors.shop_name, vendors.nid, vendors.shop_address, vendors.status as vendor_status FROM users
+            LEFT JOIN vendors ON vendors.user_id = users.id
+            WHERE users.id = {$id} LIMIT 1";
             $result = $this->db->select($sql);
             return $result;
         }
-
-        public function deleteDataById ($id) {
-            $query = "DELETE from sub_categories where id = '$id'";
-            $delSubCat = $this->db->delete($query);
-
-            if($delSubCat != false){
-                $msg = '<div class="alert alert-success"><strong> Congratulations!</strong> Data deleted successfully!</div>';
-                return $msg;
-            }else{
-                $msg = '<div class="alert alert-danger"><strong> Sorry!</strong> Data not deleted!</div>';
-                return $msg;
-            }
-        }
-
 
         public function uploadFile ($file) {
             $imageFileType = strtolower(pathinfo(basename($file["name"]),PATHINFO_EXTENSION));

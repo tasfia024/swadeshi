@@ -27,6 +27,13 @@
             } elseif (!$userData->dob) {
                 $msg = "<div class='alert alert-danger'>The date of birth field is required!</div>";
 				return $msg;
+            } else {
+                $vendorSql = "SELECT * FROM vendors WHERE user_id = {$userId} LIMIT 1";
+                $isExist = $this->db->select($vendorSql)->fetch_object();
+                if ($isExist) {
+                    $msg = "<div class='alert alert-danger'>You already applied. Please wait for admin approval!</div>";
+				    return $msg;
+                }
             }
 
             $sql = "INSERT INTO vendors (shop_name, nid, user_id, shop_address) VALUES('".$shopName."', '".$nid."', '".$userId."', '".$shopAddress."')";
