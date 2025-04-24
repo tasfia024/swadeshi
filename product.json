@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+        "name": "Tops",
+        "price": 520,
+        "image": "img/dress/dress10.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Kurti",
+        "price": 220,
+        "image": "img/dress/dress11.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Fotua",
+        "price": 250,
+        "image": "img/dress/dress2.jpg"
+    }
+    ,
+    {
+        "id": 4,
+        "name": "Frock",
+        "price": 420,
+        "image": "img/dress/dress3.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Fotua combo",
+        "price": 120,
+        "image": "img/dress/dress4.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Kurti set",
+        "price": 120,
+        "image": "img/dress/dress5.jpg"
+    }
+]
