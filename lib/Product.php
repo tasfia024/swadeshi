@@ -14,6 +14,9 @@
 		}
 
         public function store ($data) {
+            $userType = Session::get('userType');
+            $userId = Session::get('userId');
+            
             $productName    = $data['product_name'];
             $imageFile      = $_FILES['image'];
             $categoryId     = $data['category_id'] ?? null;
@@ -37,7 +40,13 @@
             }
             $file_name = $result;
 
-            $sql = "INSERT INTO products (product_name, category_id, sub_category_id, product_type, image, price, stock_qty, description) VALUES('".$productName."', '".$categoryId."', '".$subCategoryId."', '".$productType."', '".$file_name."', '".$price."', '".$stockQty."', '".$description."')";
+            
+            if ($userType != 1) {
+                $sql = "INSERT INTO products (product_name, category_id, sub_category_id, product_type, image, price, stock_qty, description, vendor_id) VALUES('".$productName."', '".$categoryId."', '".$subCategoryId."', '".$productType."', '".$file_name."', '".$price."', '".$stockQty."', '".$description."',  '".$userId."')";
+            } else {
+                $sql = "INSERT INTO products (product_name, category_id, sub_category_id, product_type, image, price, stock_qty, description) VALUES('".$productName."', '".$categoryId."', '".$subCategoryId."', '".$productType."', '".$file_name."', '".$price."', '".$stockQty."', '".$description."')";
+            }
+
             $query = $this->db->insert($sql);
 
             if ($query) {
@@ -109,10 +118,18 @@
         }
 
         public function getData () {
+            $userType = Session::get('userType');
+            $userId = Session::get('userId');
+            
             $sql = "SELECT products.*, categories.name as category_name, sub_categories.name as sub_category_name
             FROM products
             INNER JOIN categories ON categories.id = products.category_id
             INNER JOIN sub_categories ON sub_categories.id = products.sub_category_id";
+
+            if ($userType != 1) {
+                $sql = $sql . " WHERE vendor_id = {$userId} LIMIT 1";
+            }
+
             $result = $this->db->select($sql);
             return $result;
         }

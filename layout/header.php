@@ -20,7 +20,7 @@
     <!-- link for css file -->
     <link rel="stylesheet" href="asset/css/style.css" />
     <link rel="stylesheet" href="asset/css/footer.css" />
-    <link rel="stylesheet" href="asset/css/custom.css" />
+
     <!-- link font-awesome for all icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -96,9 +96,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
-                                <img class="profilePic" src="asset/img/profilePic.webp" alt="Avatar">
+                                <img class="profilePic" src="asset/img/profile/profile.png" alt="Avatar">
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="backend/profile_view.php">Profile</a></li>
                                 <li><a class="dropdown-item" href="backend/dashboard.php">Dashboard</a></li>
                                 <li><a class="dropdown-item" href="?action=logout">Sign Out</a></li>

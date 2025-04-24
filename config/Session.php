@@ -1,5 +1,4 @@
 <?php
-	
 	class Session {
 		public static function init(){
 			if (version_compare(phpversion(), '7.4.0', '<')) {

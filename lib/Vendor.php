@@ -17,10 +17,10 @@
             $shopName    = $data['shop_name'];
             $shopAddress = $data['shop_address'];
             $nid     = $data['nid'];
-            $mobileNo = $data['mobile_no'];
 
-            $userData = Session::get('userData');
-            $userId = $userData->id;
+            $userId = Session::get('userId');
+            $userData = $this->getDataByUserId($userId)->fetch_object();
+            
             if (!$userData->mobile_no) {
                 $msg = "<div class='alert alert-danger'>The mobile no field is required!</div>";
 				return $msg;
@@ -28,9 +28,7 @@
                 $msg = "<div class='alert alert-danger'>The date of birth field is required!</div>";
 				return $msg;
             } else {
-                $vendorSql = "SELECT * FROM vendors WHERE user_id = {$userId} LIMIT 1";
-                $isExist = $this->db->select($vendorSql)->fetch_object();
-                if ($isExist) {
+                if (isset($userData->shop_name) && $userData->shop_name) {
                     $msg = "<div class='alert alert-danger'>You already applied. Please wait for admin approval!</div>";
 				    return $msg;
                 }
@@ -49,9 +47,16 @@
         }
 
         public function getData () {
-            $sql = "SELECT vendors.*, users.name as user_name, users.mobile_no, users.dob, users.email, users.gender
+            $userType = Session::get('userType');
+            $userId = Session::get('userId');
+            $sql = "SELECT vendors.*, users.name, users.mobile_no, users.dob, users.email, users.gender
             FROM vendors
             INNER JOIN users ON users.id = vendors.user_id";
+
+            if ($userType != 1) {
+                $sql = $sql . " WHERE user_id = {$userId} LIMIT 1";
+            }
+
             $result = $this->db->select($sql);
             return $result;
         }
@@ -62,17 +67,49 @@
             return $result;
         }
 
+        public function getDataByUserId ($id) {
+            $sql = "SELECT users.*, vendors.shop_name, vendors.nid, vendors.shop_address, vendors.status as vendor_status FROM users
+            LEFT JOIN vendors ON vendors.user_id = users.id
+            WHERE users.id = {$id} LIMIT 1";
+            $result = $this->db->select($sql);
+            return $result;
+        }
+
         public function deleteDataById ($id) {
             $query = "DELETE from vendors where id = '$id'";
-            $delSubCat = $this->db->delete($query);
+            $delVendor = $this->db->delete($query);
 
-            if($delSubCat != false){
+            if($delVendor != false){
                 $msg = '<div class="alert alert-success"><strong> Congratulations!</strong> Data deleted successfully!</div>';
                 return $msg;
             }else{
                 $msg = '<div class="alert alert-danger"><strong> Sorry!</strong> Data not deleted!</div>';
                 return $msg;
             }
+        }
+
+        public function approveById ($userId) {
+            $status = 1;
+            $type = 2;
+            $query = "UPDATE vendors
+	               	SET 
+	               	status  = '$status'
+	               	WHERE user_id  = '$userId'";
+            $updated_rows = $this->db->update($query);
+
+            $query1 = "UPDATE users
+                    SET 
+                    type  = '$type'
+                    WHERE id  = '$userId'";
+            $updated_rows1 = $this->db->update($query1);
+	            
+	            if ($updated_rows) {
+                    $msg = '<div class="alert alert-success"><strong>Success!</strong> Vendor approved successfully</div>';
+					return $msg;
+	            }else {
+	                $msg = '<div class="alert alert-danger"><strong>Error!</strong> Something went wrong.</div>';
+					return $msg;
+	            }
         }
 	}
 ?>

@@ -1,10 +1,20 @@
 <?php
     include 'layout/header.php';
-    include "../lib/Product.php";
+    include "../lib/Vendor.php";
     Session::checkSession();
 
-	$product = new Product();
+	$vendor = new Vendor();
 ?>
+
+<?php
+        if(isset($_GET['delId'])){
+ 			$actionMsg = $vendor->deleteDataById($_GET['delId']);
+        }
+
+        if(isset($_GET['userId'])){
+ 			$actionMsg = $vendor->approveById($_GET['userId']);
+        }
+    ?>
 
 <!-- Content Body -->
 <div class="container-fluid p-3">
@@ -15,56 +25,72 @@
     <hr />
     <!-- Example Content Cards -->
     <div class="row">
+        <?php
+                if(isset($actionMsg)){
+                    echo $actionMsg;
+                }
+            ?>
         <table id="usersTable" class="display">
             <thead>
                 <tr>
                     <th>SL</th>
-                    <th>Product Name</th>
-                    <th>Image</th>
-                    <th>Category</th>
-                    <th>Sub Category</th>
-                    <th>Price</th>
-                    <th>Stock Qty</th>
-                    <th>Available Qty</th>
+                    <th>Applicant Name</th>
+                    <th>Mobile No.</th>
+                    <th>NID</th>
+                    <th>Date of Birth</th>
+                    <th>Vendor Shop</th>
+                    <th>Shop Address</th>
                     <th>Status</th>
+                    <th>Created at</th>
+                    <?php if ($userType == 1) { ?>
                     <th>Action</th>
+                    <?php } ?>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                        $getProduct = $product->getData();
-                        if($getProduct) {
+                        $getVendor = $vendor->getData();
+                        if($getVendor) {
                             $i = 0;
-                            while($row = $getProduct->fetch_assoc()){
+                            while($row = $getVendor->fetch_assoc()){
                                 $i++;
                     ?>
                 <tr>
                     <td><?= $i ?></td>
-                    <td><?= $row['product_name']; ?></td>
-                    <td>
-                        <img src="<?= BASE_URL . '/uploads/' . $row['image']; ?>" width="60px" height="40px">
-                    </td>
-
-                    <td><?= $row['category_name']; ?></td>
-                    <td><?= $row['sub_category_name']; ?></td>
-                    <td><?= $row['price']; ?></td>
-                    <td><?= $row['stock_qty']; ?></td>
-                    <td><?= $row['stock_qty'] - $row['sale_qty']; ?></td>
+                    <td><?= $row['name']; ?></td>
+                    <td><?= $row['mobile_no']; ?></td>
+                    <td><?= $row['nid']; ?></td>
+                    <td><?= $row['dob']; ?></td>
+                    <td><?= $row['shop_name']; ?></td>
+                    <td><?= $row['shop_address']; ?></td>
                     <td>
                         <?php 
                             if($row['status'] == 0){
-                                echo "Inactive";
+                                echo "Submitted & Pending For Approval";
                             }else{
-                                echo "Active";
+                                echo "Approved";
                             }
                         ?>
                     </td>
+                    <td><?= $row['created_at']; ?></td>
+
+                    <?php if ($userType == 1) { ?>
                     <td>
-                        <a class="btn btn-success btn-sm" href="product_edit.php?editId=<?php echo $row['id']?>">
-                            <i class="fa fa-edit"></i>
+                        <?php if ($row['status'] == 0) { ?>
+                        <a class="btn btn-success btn-sm" title="Approve"
+                            onclick="return confirm('Are you sure to approve?'); "
+                            href="?userId=<?php echo $row['user_id']?>">
+                            <i class="fa fa-check"></i>
                         </a>
 
+                        <a class="btn btn-danger btn-sm" title="Delete"
+                            onclick="return confirm('Are you sure to delete'); " href="?delId=<?php echo $row['id']?>">
+                            <i class="fa fa-trash"></i>
+                        </a>
+
+                        <?php } else { echo 'N/A'; } ?>
                     </td>
+                    <?php } ?>
                 </tr>
                 <?php } } ?>
             </tbody>

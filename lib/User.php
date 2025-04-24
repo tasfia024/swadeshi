@@ -54,8 +54,6 @@
             }
         }
 
-
-        
         public function userLogin($data){
             $username = $data['username'];
             $password = md5($data['password']);
@@ -80,7 +78,10 @@
                 Session::set("userData", $data);
                 Session::set("loginmsg", '<div class="alert alert-success"><strong> Success! </strong>You are LoggedIn! </div>');
 
-                header("Location: index.php");
+                echo "<script>window.location.href='index.php';</script>";
+
+                // header("Location: index.php");
+                // exit;
             }else{
                 $msg = '<div class="alert alert-danger"><strong>Error!</strong> User not found! </div>';
                 return $msg;

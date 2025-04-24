@@ -13,9 +13,13 @@
         <div class="col-md-10">
             <div class="card shadow-lg">
                 <div class="card-body text-center">
+                    <?php if ($profileData->image) { ?>
                     <img src="<?= BASE_URL . '/uploads/' . $profileData->image; ?>" class="rounded-circle mb-3"
                         alt="Profile Picture" width="150" height="150">
-
+                    <?php } else { ?>
+                    <img src="../asset/img/profile/profile.png" class="rounded-circle mb-3" alt="Profile Picture"
+                        width="150" height="150">
+                    <?php } ?>
 
                     <h4 class="card-title"><?php echo $profileData->name; ?></h4>
                     <p class="text-muted"><?php echo $userRole; ?></p>
