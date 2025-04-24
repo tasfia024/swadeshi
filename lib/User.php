@@ -73,7 +73,8 @@
 
                 Session::init();
                 Session::set("login", true);
-                Session::set("id", $data->id);
+                Session::set("userId", $data->id);
+                Session::set("userType", $data->type);
                 Session::set("name", $data->name);
                 Session::set("username", $data->username);
                 Session::set("userData", $data);
