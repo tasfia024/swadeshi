@@ -8,16 +8,16 @@
 ?>
 
 <!-- Content Body -->
-<div class="container-fluid p-3">
+<div class="container-fluid p-1">
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card shadow-lg">
                 <div class="card-body text-center">
                     <?php if ($profileData->image) { ?>
-                    <img src="<?= BASE_URL . '/uploads/' . $profileData->image; ?>" class="rounded-circle mb-3"
+                    <img src="<?= BASE_URL . '/uploads/' . $profileData->image; ?>" class="rounded-circle mb-1"
                         alt="Profile Picture" width="150" height="150">
                     <?php } else { ?>
-                    <img src="../asset/img/profile/profile.png" class="rounded-circle mb-3" alt="Profile Picture"
+                    <img src="../asset/img/profile/profile.png" class="rounded-circle mb-1" alt="Profile Picture"
                         width="150" height="150">
                     <?php } ?>
 
@@ -31,6 +31,10 @@
                             <tr>
                                 <th width="30%" scope="row">Full Name</th>
                                 <td><?php echo $profileData->name; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Username</th>
+                                <td><?php echo $profileData->username; ?></td>
                             </tr>
                             <tr>
                                 <th scope="row">Email</th>
@@ -77,7 +81,7 @@
                             </tr>
                             <tr>
                                 <th scope="row">Status</th>
-                                <td><?php echo $profileData->vendor_status == 1 ? 'Pending' : 'Approved'; ?></td>
+                                <td><?php echo $profileData->vendor_status == 0 ? 'Pending' : 'Approved'; ?></td>
                             </tr>
                         </tbody>
                     </table>

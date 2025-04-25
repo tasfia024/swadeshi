@@ -1,6 +1,7 @@
 <?php
 	$filepath = realpath(dirname(__FILE__));
 	include_once $filepath.'/../config/Session.php';
+    include_once $filepath.'/../config/config.php';
 	Session::init();
 ?>
 
@@ -76,7 +77,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
+                            <a class="nav-link" href="product.php">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About</a>

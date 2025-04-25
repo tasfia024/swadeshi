@@ -39,7 +39,6 @@
                 return $result['message'];
             }
             $file_name = $result;
-
             
             if ($userType != 1) {
                 $sql = "INSERT INTO products (product_name, category_id, sub_category_id, product_type, image, price, stock_qty, description, vendor_id) VALUES('".$productName."', '".$categoryId."', '".$subCategoryId."', '".$productType."', '".$file_name."', '".$price."', '".$stockQty."', '".$description."',  '".$userId."')";

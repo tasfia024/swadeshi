@@ -1,4 +1,6 @@
 <?php
+	include_once ("config.php");
+
 	class Session {
 		public static function init(){
 			if (version_compare(phpversion(), '7.4.0', '<')) {
@@ -27,36 +29,26 @@
 		public static function checkSession(){
 			if (self::get("login") == false) {
 				self::destroy();
-				header("Location: sign_in.php");
+
+				header("Location: /swadeshi-ecommerce/sign_in.php");
+				exit;
+				// echo "<script>window.location.href='index.php';</script>";
 			}
 		}
 
 		public static function checkLogin(){
 			if (self::get("login") == true) {
-				header("Location: index.php");
+				header("Location: /swadeshi-ecommerce/index.php");
+				exit;
 			}
 		}
 
 		public static function destroy(){
 			session_destroy();
 			session_unset();
-			header("Location: index.php");
+			header("Location: /swadeshi-ecommerce/index.php");
+			exit;
 		}
-
-
-		// public static function checkAdminSession(){
-		// 	if (self::get("adminLogin") == false) {
-		// 		self::destroy();
-		// 		header("Location: adminLogin.php");
-		// 	}
-		// }
-
-		// public static function checkadminLogin(){
-		// 	if (self::get("adminLogin") == true) {
-		// 		header("Location: admin.php");
-		// 	}
-		// }
-
 	}
 
 ?>

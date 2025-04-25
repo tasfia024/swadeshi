@@ -59,8 +59,8 @@
         <?php } ?>
 
 
-        <!-- <a href="?action=logout" class="list-group-item list-group-item-action bg-dark text-white">
+        <a href="?action=logout" class="list-group-item list-group-item-action bg-dark text-white">
             <i class="fa fa-power-off"></i> Sign Out
-        </a> -->
+        </a>
     </div>
 </div>

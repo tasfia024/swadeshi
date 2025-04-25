@@ -26,6 +26,13 @@
 </head>
 
 <body>
+
+    <?php
+        if(isset($_GET['action']) && $_GET['action'] == "logout"){
+            Session::destroy();
+        }
+    ?>
+
     <?php
         $userData = Session::get('userData');
         $userType = Session::get('userType');
