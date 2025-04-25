@@ -130,7 +130,7 @@
 
             <div class="card">
                 <div class="overly">
-                    <a href="javascript:void(0)"><?= $categoryRow['name'] ?></a>
+                    <a href="product.php?category_id=<?php echo $categoryRow['id']?>"><?= $categoryRow['name'] ?></a>
                 </div>
                 <img src="<?= BASE_URL . '/swadeshi-ecommerce/uploads/' . $categoryRow['image']; ?>"
                     alt="<?= $categoryRow['name'] ?>">
@@ -187,7 +187,11 @@
             <div class="col-4">
                 <img src="<?= BASE_URL . '/swadeshi-ecommerce/uploads/' . $product['image']; ?>"
                     alt="<?= $product['product_name'] ?>">
-                <h4><?= $product['product_name'] ?></h4>
+
+                <a href="product_details.php?product_id=<?php echo $product['id']?>">
+                    <h4><?= $product['product_name'] ?></h4>
+                </a>
+
                 <div class="rating">
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>

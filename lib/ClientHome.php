@@ -83,5 +83,48 @@
             $result = $this->db->select($sql);
             return $result;
         }
+
+        public function addToCart ($productId, $data) {
+            $qty = $data['qty'];
+
+            if (!isset($qty) && !$qty && !$productId) {
+                $msg = "<div class='alert alert-danger'>The category field is required!</div>";
+				return $msg;
+            }
+            
+            $findData = $this->getDataById($productId);
+            if ($findData) {
+                $msg = "<div class='alert alert-danger'>This product already added to your cart!</div>";
+				return $msg; 
+            }
+
+            $findProduct = $this->getProductById($productId)->fetch_object();
+            
+            $userId = Session::get('userId');
+            
+            $sql = "INSERT INTO carts (product_id, user_id, qty, price) VALUES('".$productId."', '".$userId."', '".$qty."', '".$findProduct->price."')";
+            $query = $this->db->insert($sql);
+
+            if ($query) {
+                $msg = '<div class="alert alert-success"><strong>Success!</strong> Thank you! Product Added To Cart Successfully</div>';
+                return $msg;
+            } else{
+                $msg = '<div class="alert alert-success"><strong> Sorry!</strong> There has been problem inserting your details!</div>';
+                return $msg;
+            }
+
+        }
+
+        public function getDataById ($id) {
+            $sql = "SELECT * FROM carts WHERE product_id = {$id} LIMIT 1";
+            $result = $this->db->select($sql);
+            return $result;
+        }
+
+        public function getProductById ($id) {
+            $sql = "SELECT * FROM products WHERE id = {$id} LIMIT 1";
+            $result = $this->db->select($sql);
+            return $result;
+        }
 	}
 ?>

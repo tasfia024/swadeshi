@@ -18,7 +18,15 @@ body {
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: #343a40;
+    background-color: tomato;
+}
+
+.list-group-item {
+    background-color: tomato !important;
+}
+
+.navbar {
+    background-color: rgb(255, 196, 170) !important;
 }
 
 #page-content-wrapper {

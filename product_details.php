@@ -13,9 +13,26 @@
     $detailData = $getProduct ? $getProduct->fetch_assoc() : null;
 ?>
 
+<?php
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if (!Session::get('userId')) {
+            echo "<script>window.location = 'sign_in.php'; </script>";
+            exit;
+        }
+
+        $actionMsg = $homePage->addToCart($productId, $_POST);
+    }
+?>
+
 <!-- Single product details start-->
 
 <div class="small-container single-product">
+    <?php
+        if(isset($actionMsg)){
+            echo $actionMsg;
+        }
+    ?>
+
     <div class="row">
         <div class="col-2">
             <!--Large img-->
@@ -55,11 +72,18 @@
             <!--Quantity-->
             Stock: <?php echo $detailData['stock_qty'] ?>
             <br>
-            <br>
-            <!--Cart-->
-            <a href="#" class="btn btn-primary btn-sm">Add To Cart</a>
+
+            <form class="needs-validation" action="" method="post">
+                <div class="py-2">
+                    Quantity:
+                    <input type="number" id="qty" name="qty" max="5" min="1" value="1"
+                        style="width: 100px; border: 1px solid #ddd; height: 45px;">
+                </div>
+                <br>
+                <!--Cart-->
+                <button name="add_to_cart" class="btn btn-primary btn-sm" type="submit">Add To Cart</button>
+            </form>
             <!--Product details-->
-            <br>
             <br>
             <h5>Description</h5>
             <p><?php echo $detailData['description'] ?></p>
@@ -111,17 +135,19 @@
 <!--JS for toggle menu starts-->
 
 <script>
-var MenuIteams = document.getElementById("MenuIteams");
-MenuIteams.style.maxHeight = "0px";
+const qtyInput = document.getElementById("qty");
 
-function menutoggle() {
-    if (MenuIteams.style.maxHeight == "0px") {
-        MenuIteams.style.maxHeight = "200px"
-    } else {
-        MenuIteams.style.maxHeight = "0px"
+qtyInput.addEventListener("input", function() {
+    let value = parseInt(this.value);
+    const min = parseInt(this.min);
+    const max = parseInt(this.max);
+
+    if (value > max) {
+        this.value = max;
+    } else if (value < min) {
+        this.value = min;
     }
-
-}
+});
 </script>
 
 <!--JS for toggle menu ends-->

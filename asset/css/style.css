@@ -10,6 +10,10 @@ body {
     padding: 15px;
 }
 
+.frontHeader {
+    background-color: tomato !important;
+}
+
 .navbar {
     border-bottom: 1px solid #ddd;
     margin-left: 4rem;
@@ -17,13 +21,14 @@ body {
 }
 
 .nav-item:hover {
-    background-color: #f8f9fa;
+    background-color: #83afaf;
     /* Light background on hover */
     border-radius: 4px;
 }
 
 .nav-link {
     transition: background-color 0.3s ease;
+    color: #fff !important;
 }
 
 .logo-container {
@@ -109,7 +114,7 @@ body {
     border-radius: 12px;
     padding: 1px;
     border-style: none;
-    background-color: rgb(41, 161, 41);
+    background-color: tomato;
 
 }
 

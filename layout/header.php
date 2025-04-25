@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="asset/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.min.css" />
     <!-- link for css file -->
     <link rel="stylesheet" href="asset/css/style.css" />
+    <link rel="stylesheet" href="asset/css/custom.css" />
     <link rel="stylesheet" href="asset/css/footer.css" />
 
     <!-- link font-awesome for all icons -->
@@ -34,7 +35,7 @@
 
 <body>
     <!-- nav Bar -->
-    <header>
+    <header class="frontHeader rounded-5">
         <nav class="navbar navbar-expand-lg navbar-light bg-ligh">
             <div class="container-fluid">
                 <!-- Brand -->
@@ -91,13 +92,27 @@
 
                         <?php
                         $isLogin = Session::get("login");
-                        if (isset($isLogin) && $isLogin) {
+                        $userPhoto = null;
+                        if (isset($isLogin) & $isLogin) {
+                            $userData = Session::get('userData');
+                            $userPhoto = $userData->image;
                     ?>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="cart-checkout.php">Carts</a>
+                        </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
+                                <?php if ($userPhoto) { ?>
+                                <img class="profilePic"
+                                    src="<?= BASE_URL . '/swadeshi-ecommerce/uploads/' . $userPhoto; ?>" alt="Avatar">
+
+                                <?php } else { ?>
+
                                 <img class="profilePic" src="asset/img/profile/profile.png" alt="Avatar">
+                                <?php } ?>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="backend/profile_view.php">Profile</a></li>
